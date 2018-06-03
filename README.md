@@ -1,2 +1,1 @@
-# angular_demo
-angular pratice
+Welcome to Angular
