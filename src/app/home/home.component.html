@@ -1,0 +1,28 @@
+
+  <h1 class="display-3 text-center"> Welcome to {{ title }}!</h1>
+
+<div class="col-sm-6">
+	<div class="row">
+		<div class="col-9">
+		  	<input type="text" class="form-control" name="user" #userValue>
+		  	<p class="text-danger" [hidden]="isError">{{userError}}</p>
+		</div>
+		<div class="col-3">	  	
+	  		<button (click)="addUser(userValue)" class="btn btn-success btn-block btn-md">Add</button>
+	  	</div>
+	</div> 
+	<hr>
+  	<div *ngIf="users.length > 0; then showList; else notList"></div>
+
+  	<ng-template #showList>  	
+	  	<ol class="list-group">
+	  		<li class="list-group-item" *ngFor="let user of users; let i = index">
+	  			<span class="badge badge-primary badge-pill">{{i+1}}</span> &nbsp; <b>{{user}}</b>
+	  			<button class="btn btn-danger btn-sm float-right" (click)="removeUser(user)">Delete</button>
+	  		</li>
+	  	</ol>
+	</ng-template>
+
+  	<ng-template #notList ><b class="text-danger">No Users in list</b></ng-template>
+
+ </div>

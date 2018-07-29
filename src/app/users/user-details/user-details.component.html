@@ -1,0 +1,37 @@
+<div *ngIf="page_error" class="alert alert-danger">not get page details</div>
+
+<div *ngIf="!page_error">
+	<div class="col-sm-6 offset-sm-3 pt-5">
+		<div class="card">
+			<div class="card-header bg-primary pt-2 pb-1 text-white">
+				<h4 class="card-title text-center">{{userdetails?.name}}</h4>
+			</div>
+			<div class="card-body">	
+				<p class="card-text"><strong>User Name :</strong> {{userdetails?.username}}</p>
+				<p class="card-text"><strong>Email :</strong> {{userdetails?.email}}</p>
+				<p class="card-text"><strong>WebSite :</strong> {{userdetails?.website}}</p>
+				<details>
+					<summary>Address</summary>
+					<address>
+						<p class="card-text">
+							{{userdetails?.address.street}}, {{userdetails?.address.suite}}
+						</p>
+						<p class="card-text">
+							{{userdetails?.address.city}}, {{userdetails?.address.zipcode}}
+						</p>
+						<abbr title="Geo Location" class="font-weight-bold p-2">Location:</abbr>
+						<p class="card-text pl-4">Latitude : {{userdetails?.address.geo.lat}}</p>
+        				<p class="card-text pl-4">Longitude : {{userdetails?.address.geo.lat}}</p>
+					</address>
+				</details>
+				<details>
+				    <summary>Company</summary>
+				    <address>
+							Name : {{userdetails?.company.name}}<br>
+							Catch Phrase : {{userdetails?.company.catchPhrase}}
+					</address>
+				 </details>
+			</div>
+		</div>
+	</div>
+</div>
