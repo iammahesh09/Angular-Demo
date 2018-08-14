@@ -8,9 +8,8 @@ import { AppRoutingModule } from './appRouting';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomeComponent } from './dashboard/home/home.component';
+import { AddEditRemoveComponent } from './dashboard/add-edit-remove/add-edit-remove.component';
 
 
 @NgModule({
@@ -18,8 +17,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AppComponent,
     MainComponent,
     HomeComponent,
-    LoginComponent,
-    PageNotFoundComponent,
+    AddEditRemoveComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,59 @@
+<section>
+  <h1 class="display-4 text-center"> {{ title }}!</h1>
+  <button type="button" class="btn btn-info" [hidden]="addUserBth" (click)="addUserButton()">Add User</button>
+  <div class="row">
+    <div class="col-sm-6 offset-sm-3">
+      <form #userForm="ngForm" [hidden]="hiddenForm">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="User Name" [(ngModel)]="_user.username" #username="ngModel" name="username"
+            required>
+          <span class="text-danger" *ngIf="username.dirty && username?.errors?.required">required</span>
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-control" placeholder="Email" [(ngModel)]="_user.email" #email="ngModel" name="email" required>
+          <span class="text-danger" *ngIf="email.dirty && email?.errors?.required">required</span>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Phone" [(ngModel)]="_user.phone" #phone="ngModel" name="phone" required>
+          <span class="text-danger" *ngIf="phone.dirty && phone?.errors?.required">required</span>
+        </div>
+        <button type="submit" (click)="addUser()" [hidden]="addBtn" [disabled]="userForm.invalid" class="btn btn-primary">Add</button>
+        <button type="submit" (click)="updateUser()" [hidden]="updateBtn" [disabled]="userForm.invalid" class="btn btn-success">Update</button>
+      </form>
+      <p class="text-danger" [hidden]="isError">{{userError}}</p>
+    </div>
+  </div>
+  <hr>
+  <div *ngIf="users.length > 0; then showList; else notList"></div>
+
+  <ng-template #showList>
+    <p>{{showResult}}</p>
+    <div class="row">
+      <div class="col-sm-4" *ngFor="let user of users; let i = index">
+        <div class="card">
+          <ol class="list-group">
+            <li class="list-group-item">
+              <span class="badge badge-primary badge-pill">{{i+1}}</span>
+              <button class="btn btn-danger btn-sm float-right ml-2" (click)="removeUser(user)">Delete</button>
+              <button class="btn btn-secondary btn-sm float-right" (click)="editUser(user)">Edit</button>
+            </li>
+            <li class="list-group-item">
+              <b>{{user.username}}</b>
+            </li>
+            <li class="list-group-item">
+              <b>{{user.email}}</b>
+            </li>
+            <li class="list-group-item">
+              <b>{{user.phone}}</b>
+            </li>
+          </ol>
+
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #notList>
+    <b class="text-danger">No Users in list</b>
+  </ng-template>
+</section>

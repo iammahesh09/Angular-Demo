@@ -1,20 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, Router } from '@angular/router';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './dashboard/home/home.component';
 import { AuthGuard } from './authentication/auth.guard';
-
-const childRoutes: Routes = [
-
-    { path: 'welcome', component: HomeComponent },
-]
+import { AddEditRemoveComponent } from './dashboard/add-edit-remove/add-edit-remove.component';
 
 const appRoutes: Routes = [
-    { path: '', component: MainComponent, canActivate: [AuthGuard], children: childRoutes },
-    { path: 'login', component: LoginComponent },
-    //{ path: '**', component: PageNotFoundComponent },
+    { path: '', component: HomeComponent },
+    { path: 'addEditDelete', component: AddEditRemoveComponent },
     { path: '**', redirectTo: '/' }
 ]
 @NgModule({
