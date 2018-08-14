@@ -4,13 +4,11 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { HomeComponent } from './home/home.component';
-import { BikesComponent } from './bikes/bikes.component';
 import { AuthGuard } from './authentication/auth.guard';
 
 const childRoutes: Routes = [
 
     { path: 'welcome', component: HomeComponent },
-    { path: 'bikes', component: BikesComponent },
 ]
 
 const appRoutes: Routes = [

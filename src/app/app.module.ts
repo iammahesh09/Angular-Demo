@@ -9,7 +9,6 @@ import { AppRoutingModule } from './appRouting';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { HomeComponent } from './home/home.component';
-import { BikesComponent } from './bikes/bikes.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
@@ -19,7 +18,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AppComponent,
     MainComponent,
     HomeComponent,
-    BikesComponent,
     LoginComponent,
     PageNotFoundComponent,
   ],
