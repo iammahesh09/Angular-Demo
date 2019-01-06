@@ -1,0 +1,72 @@
+<form #movieForm="ngForm" novalidate>
+  <div class="row">
+    <div class="col-sm-5">
+      <input type="text" class="form-control" value="game" placeholder="Search for movie" required [(ngModel)]="_movie.Title" #Title="ngModel"
+        name="Title">
+    </div>
+    <div class="col-sm-3">
+      <input list="types" class="form-control" required placeholder="Please select Type" [(ngModel)]="_movie.Type" #Type="ngModel"
+        name="Type">
+      <datalist id="types">
+        <option>movie</option>
+        <option>series</option>
+        <option>episode</option>
+      </datalist>
+    </div>
+    <div class="col-sm-2">
+      <button type="submit" class="btn btn-primary btn-block" [disabled]="movieForm.invalid" (click)="searchMovie()">Search</button>
+    </div>
+  </div>
+</form>
+<h5 class="alert alert-danger" [hidden]="isNotFound?false:true">{{isNotFound}}</h5>
+<section [hidden]="isMovieSearch">
+  <div class="row">
+    <div class="col-sm-6 col-md-4" *ngFor="let movie of movies">
+      <div class="card">
+        <img class="card-img-top" src="{{movie.Poster}}" alt="{{movie.Poster}}">
+        <div class="card-body">
+          <h5 class="card-title btn-link" (click)="getMovie(movie.imdbID)">
+            {{movie.Title}}
+          </h5>
+        </div>
+        <div class="card-footer text-muted">
+          <span class="badge badge-primary badge-pill float-left">Type : {{movie.Type}}</span>
+          <span class="badge badge-primary badge-pill float-right">Year : {{movie.Year}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section [hidden]="isSearchId">
+  <div class="card">
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="card-body">
+          <h5 class="card-title">{{movieId.Title}}</h5>
+          <p class="card-text">Actors : {{movieId.Actors}}</p>
+          <p class="card-text">Writer : {{movieId.Writer}}</p>
+          <p class="card-text">Genre : {{movieId.Genre}}</p>
+          <p class="card-text">Director : {{movieId.Director}}</p>
+          <p class="card-text">Plot : {{movieId.Plot}}</p>
+          <p class="card-text">Awards : {{movieId.Awards}}</p>
+          <p class="card-text">Ratings : {{movieId.Ratings['Value']}}</p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <img class="card-img-top img-fluid" src="{{movieId.Poster}}" alt="{{movieId.Title}}">
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-sm">Year : {{movieId.Year}}</div>
+        <div class="col-sm">Rated : {{movieId.Rated}}</div>
+        <div class="col-sm">Language :{{movieId.Language}}</div>
+        <div class="col-sm">Country : {{movieId.Country}}</div>
+        <div class="col-sm">imdbVotes : {{movieId.imdbVotes}}</div>
+        <div class="col-sm">imdbRating : {{movieId.imdbRating}}</div>
+      </div>
+    </div>
+  </div>
+</section>

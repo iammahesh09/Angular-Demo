@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { HomeComponent } from './dashboard/home/home.component';
 import { AddEditRemoveComponent } from './dashboard/add-edit-remove/add-edit-remove.component';
+import { MoviesComponent } from './dashboard/movies/movies.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { AddEditRemoveComponent } from './dashboard/add-edit-remove/add-edit-rem
     MainComponent,
     HomeComponent,
     AddEditRemoveComponent,
+    MoviesComponent,
   ],
   imports: [
     BrowserModule,
